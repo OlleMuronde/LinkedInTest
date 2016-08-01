@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/jsoup-1.9.2.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/mysql-connector-java-5.1.39 2/mysql-connector-java-5.1.39-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/guava-19.0.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/lucene-6.1.0/analysis/morfologik/lucene-analyzers-morfologik-6.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/lucene-6.1.0/analysis/morfologik/lib/morfologik-stemming-2.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/lucene-stemmers-3.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/opennlp-tools.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/opennlp-tokenize-models-1.5.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/stanford-corenlp-full-2015-12-09/stanford-corenlp-3.6.0-models.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/stanford-corenlp-full-2015-12-09/slf4j-simple.jar"/>
+	<classpathentry kind="lib" path="/Users/ollemuronde/Desktop/stanford-corenlp-full-2015-12-09/slf4j-api.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
