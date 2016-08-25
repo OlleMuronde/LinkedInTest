@@ -28,24 +28,18 @@ public class BayesClassifierTest {
 	
 	}
 
-	public void setUp(HashMap<String,String>map) {
+	public void setUp(ArrayList<Profile>profile) {
 		bayes = new BayesClassifier<String, String>();
 		bayes.setMemoryCapacity(20000);
-		for (HashMap.Entry<String, String> entry : map.entrySet()) {
-		    String category = entry.getKey();
-		    String learningText = entry.getValue();
-		//  System.out.println("the features are "+learningText);
-         String[] learningTextArray=learningText.split("\\s");
-       // System.out.println("Learning array fed ccnverted to list and fed to learn method "+Arrays.toString(learningTextArray));
-        bayes.learn(category, Arrays.asList(learningTextArray));
-    	
+		for (Profile prof:profile){
+		 System.out.println(prof.getLearningText());
+         String[] learningTextArray=prof.getLearningText().split("\\s");
+         
+        bayes.learn(prof.getClassification(), Arrays.asList(learningTextArray));	
 		}
-	//	System.out.println(bayes.getCategories());
-
-		 String[] unknownText1 = "Deputy Commissioner".split("\\s");
-		 
+		 String[] unknownText1 = "City of Colleyville	Town of Flower Mound	University of North Texas	 Southern Methodist University	 Southern Methodist University	 University of North	Grants Intern	Budget Coordinator	...	 Strategic Services Manager	Press Releases	Public Policy	Government".trim().split("\\t");
          String result= bayes.classify(Arrays.asList(unknownText1)).getCategory();
-      //   System.out.println("THE FINAL RESULT IS"+result);
+         System.out.println("THE FINAL RESULT IS "+result);
 	}
 	
 
@@ -63,6 +57,12 @@ public class BayesClassifierTest {
 		
 		Assert.assertEquals(CATEGORY_POSITIVE, list.get(1).getCategory());
 		Assert.assertEquals(0.0234375, list.get(1).getProbability(), EPSILON);
+	}
+	
+	
+	public void TestMultipleStrings(Classifier bayes){
+		
+		
 	}
 
 }

@@ -1,12 +1,5 @@
-import java.io.File;
-import java.io.IOException;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
-
-public class Profile {
-	private static int id_Count;
+public class TimeSeriesProfile {
 	private String classification;
 	private String current_Job;
 	private String previous_Job;
@@ -23,6 +16,12 @@ public class Profile {
 	private String skills_Three;
 	private String skills_Four;
 	private String  learningText;
+	private String firstJobDuration;
+	private String secondJobDuration;
+	private String thirdJobDuration;
+	private String educationDurationFirst;
+	private String educationDurationSecond;
+	private String educationDurationThird;
 
 	public String getLearningText() {
 		return learningText;
@@ -32,10 +31,10 @@ public class Profile {
 		this.learningText = learningText;
 	}
 
-	public Profile( String classification, String current_Job, String previous_Job, String university,
+	public TimeSeriesProfile( String classification, String current_Job, String previous_Job, String university,
 			String education_One, String education_Two, String education_Three, String experience_One,
 			String experience_Two, String experience_Three, String experience_Four, String skills_One,
-			String skills_Two, String skills_Three,String learningText) {
+			String skills_Two, String skills_Three,String learningText, String firstJobDuration, String secondJobDuration, String thirdJobDuration, String educationDurationFirst, String educationDurationSecond, String educationDurationThird) {
 	
 		this.classification = classification;
 		this.current_Job = current_Job;
@@ -52,16 +51,64 @@ public class Profile {
 		this.skills_Two = skills_Two;
 		this.skills_Three = skills_Three;
 		this.learningText=learningText;
+		this.firstJobDuration=firstJobDuration;
+		this.secondJobDuration=secondJobDuration;
+		this.thirdJobDuration=thirdJobDuration;
+		this.educationDurationFirst=educationDurationFirst;
+		this.educationDurationSecond=educationDurationSecond;
+		this.educationDurationThird=educationDurationThird;
+		
+		
 	}
 
-	public static int getId_Count() {
-		return id_Count;
+
+	public String getFirstJobDuration() {
+		return firstJobDuration;
 	}
 
-	public static void setId_Count(int id_Count) {
-		Profile.id_Count = id_Count;
+	public void setFirstJobDuration(String firstJobDuration) {
+		this.firstJobDuration = firstJobDuration;
 	}
 
+	public String getSecondJobDuration() {
+		return secondJobDuration;
+	}
+
+	public void setSecondJobDuration(String secondJobDuration) {
+		this.secondJobDuration = secondJobDuration;
+	}
+
+	public String getThirdJobDuration() {
+		return thirdJobDuration;
+	}
+
+	public void setThirdJobDuration(String thirdJobDuration) {
+		this.thirdJobDuration = thirdJobDuration;
+	}
+
+	public String getEducationDurationFirst() {
+		return educationDurationFirst;
+	}
+
+	public void setEducationDurationFirst(String educationDurationFirst) {
+		this.educationDurationFirst = educationDurationFirst;
+	}
+
+	public String getEducationDurationSecond() {
+		return educationDurationSecond;
+	}
+
+	public void setEducationDurationSecond(String educationDurationSecond) {
+		this.educationDurationSecond = educationDurationSecond;
+	}
+
+	public String getEducationDurationThird() {
+		return educationDurationThird;
+	}
+
+	public void setEducationDurationThird(String educationDurationThird) {
+		this.educationDurationThird = educationDurationThird;
+	}
 
 	public String getClassification() {
 		return classification;
@@ -183,5 +230,4 @@ public class Profile {
 		this.skills_Four = skills_Four;
 	}
 	
-
 }

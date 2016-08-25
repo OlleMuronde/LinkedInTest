@@ -4,11 +4,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-
 	public class Database {
-		Connection con;
-		int count=0;
+    Connection con;
+	int count=0;
 	public void connect(){
 		
 	try {
@@ -31,7 +29,7 @@ import java.util.ArrayList;
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-		
+		 
 	}
 
 	public void disconnect(){
@@ -44,14 +42,12 @@ import java.util.ArrayList;
 //	String checkSql="select count(*) as count from LinkedIn where id=?";
 	///FINISH OFFF !!!!!!!!
 	
-	String insertSql="insert into LINKEDIN(id,classification,current,previous,university,education_One,education_Two,education_Three,job_One,job_Two,job_Three,job_Four,skills_One,skills_Two,skills_Three) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+	String insertSql="insert into LINKEDIN(Classification,current,previous,university,education_One,education_Two,education_Three,job_One,job_Two,job_Four,skills_One,skills_Two,skills_Three) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	PreparedStatement insertStatement=con.prepareStatement(insertSql);
-	
 	
 	
 	for(Profile prof:profiles){
 	int col=1;
-	insertStatement.setInt(col++,prof.getId());
 	insertStatement.setString(col++,prof.getClassification());
 	insertStatement.setString(col++,prof.getCurrent_Job());
 	insertStatement.setString(col++,prof.getPrevious_Job());
@@ -61,12 +57,14 @@ import java.util.ArrayList;
 	insertStatement.setString(col++,prof.getEducation_Three());
 	insertStatement.setString(col++,prof.getExperience_One());
 	insertStatement.setString(col++,prof.getExperience_Two());
-	insertStatement.setString(col++,prof.getEducation_Three());
+	//insertStatement.setString(col++,prof.getEducation_Three());
 	insertStatement.setString(col++,prof.getExperience_Four());
 	insertStatement.setString(col++,prof.getSkills_One());
 	insertStatement.setString(col++,prof.getSkills_Two());
 	insertStatement.setString(col++,prof.getSkills_Three());
 	insertStatement.executeUpdate();
+	System.out.println("Profile num"+ count);
+	count++;
 	}
 	insertStatement.close();
 	
@@ -77,7 +75,7 @@ import java.util.ArrayList;
 		for(Profile prof:profiles){
 		int col=1;
 		
-		updateStatement.setString(col++,prof.getClassification());
+		
 		updateStatement.setString(col++,prof.getCurrent_Job());
 		updateStatement.setString(col++,prof.getPrevious_Job());
 		updateStatement.setString(col++,prof.getUniversity());
@@ -91,13 +89,52 @@ import java.util.ArrayList;
 		updateStatement.setString(col++,prof.getSkills_One());
 		updateStatement.setString(col++,prof.getSkills_Two());
 		updateStatement.setString(col++,prof.getSkills_Three());
-		updateStatement.setInt(col++,prof.getId());
+		updateStatement.setString(col++,prof.getClassification());
 		updateStatement.executeUpdate();
 		System.out.println("Profile num"+ count);
 		count++;
 		}
 		updateStatement.close();
 	}
+	public void saveTimeSeries(ArrayList<TimeSeriesProfile> profiles ) throws SQLException{
+//		PreparedStatement statement= con.prepareStatement("checkSql");
+//		String checkSql="select count(*) as count from LinkedIn where id=?";
+		///FINISH OFFF !!!!!!!!
+		
+		String insertSql="insert into LINKEDINTIME(classification,current,previous,university,education_One,education_Two,education_Three,job_One,job_Two,job_Four,skills_One,skills_Two,skills_Three,firstJobDuration,secondJobDuration,thirdJobDuration,educationDurationFirst,educationDurationSecond,educationDurationThird) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		PreparedStatement insertStatement=con.prepareStatement(insertSql);
+		
+		
+		for(TimeSeriesProfile prof:profiles){
+		int col=1;
+        insertStatement.setString(col++,prof.getClassification());
+		insertStatement.setString(col++,prof.getCurrent_Job());
+		insertStatement.setString(col++,prof.getPrevious_Job());
+		insertStatement.setString(col++,prof.getUniversity());
+		insertStatement.setString(col++,prof.getEducation_One());
+		insertStatement.setString(col++,prof.getEducation_Two());
+		insertStatement.setString(col++,prof.getEducation_Three());
+		insertStatement.setString(col++,prof.getExperience_One());
+		insertStatement.setString(col++,prof.getExperience_Two());
+		//insertStatement.setString(col++,prof.getEducation_Three());
+		insertStatement.setString(col++,prof.getExperience_Four());
+		insertStatement.setString(col++,prof.getSkills_One());
+		insertStatement.setString(col++,prof.getSkills_Two());
+		insertStatement.setString(col++,prof.getSkills_Three());
+		insertStatement.setString(col++,prof.getFirstJobDuration());
+		insertStatement.setString(col++,prof.getSecondJobDuration());
+		insertStatement.setString(col++,prof.getThirdJobDuration());
+		insertStatement.setString(col++,prof.getEducationDurationFirst());
+		insertStatement.setString(col++,prof.getEducationDurationSecond());
+		insertStatement.setString(col++,prof.getEducationDurationThird());
+		insertStatement.executeUpdate();
+		System.out.println("Profile num"+ count);
+		count++;
+		}
+		insertStatement.close();
+		
+		}
+
 	
 	
 	}
